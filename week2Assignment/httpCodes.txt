@@ -1,0 +1,18 @@
+
+  1. Commonly Used HTTP Status Codes:
+
+  // Success Responses
+  200 OK                  ->The request succeeded and the server returned the requested data.
+  201 Created             ->The request succeeded and a new resource was created.
+  204 No Content          ->The request succeeded, but there is no content to send in the response.
+
+  // Client Error Responses
+  400 Bad Request         ->The request could not be understood or was missing required parameters.
+  401 Unauthorized        ->Authentication failed or user is not authenticated.
+  403 Forbidden           ->The authenticated user does not have permission to access the resource.
+  404 Not Found           ->The requested resource could not be found.
+
+  // Server Error Responses
+  500 Internal Server Error  An error occurred on the server.
+  503 Service Unavailable    The server is not ready to handle the request (overloaded or down for maintenance).
+
