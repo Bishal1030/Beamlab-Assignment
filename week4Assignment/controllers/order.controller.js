@@ -7,6 +7,7 @@ const createOrders = async (req, res) => {
     const order = await orderService.createOrder(id, quantity);
     await order.save();
     res.status(201).json({ message: "Order created", data: order });
+ 
   } catch (error) {
     res.status(400).json({ message: error.message, error: error.message });
   }

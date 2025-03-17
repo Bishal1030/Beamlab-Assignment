@@ -1,5 +1,5 @@
-const { where } = require('sequelize');
 const productService = require('../services/product/product.services.js')
+const redis = require('../config/redis.js')
 
 
 const createProduct = async(req,res) => {
@@ -10,6 +10,7 @@ const createProduct = async(req,res) => {
     const product = await productService.createProducts({name,description,price,stock})
     console.log(product)
     res.status(201).json({message: "Product created successfully", data: product})
+
 }
 
 const getAllProduct = async(req,res) => {

@@ -3,6 +3,7 @@ const {Product} = require('../../models')
 
 const createProducts = async(productData) => {
     return await Product.create(productData)
+
 }
 
 const getProducts = async() => {

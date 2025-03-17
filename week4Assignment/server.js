@@ -1,10 +1,18 @@
 const express = require('express')
+
+const swaggerUi = require('swagger-ui-express')
+const YAML = require('yamljs')
+const swaggerDocument = YAML.load('./swagger/swagger.yml')
+
 const productRoute = require('./routes/product.routes.js')
 const orderRoute = require('./routes/order.route.js')
-const adminRoute = require('./routes/admin.route.js')
+const authRoute = require('./routes/auth.route.js')
+const register = require('./routes/register.route.js')
 const bodyParser = require('body-parser')
-const jwt = require('jsonwebtoken')
+const redis = require('./config/redis.js')
 const dotenv = require('dotenv')
+
+
 
 dotenv.config();
 
@@ -15,30 +23,20 @@ const app = express()
 app.use(bodyParser.json());
 app.use(express.urlencoded({extended: true}))
 
-app.use('/api/v1/admin/', adminRoute)
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+
+app.use('/api/v1/register/', register)
+app.use('/api/v1/', authRoute)
 app.use('/api/v1/products', productRoute)
 
-app.use((req,res,next) => {
-    let token;
-    try {
-        if (req.headers.authorization && req.headers.authorization.startsWith("Bearer ")) {
-          token = req.headers.authorization.split(" ")[1];
-    
-          const decoded = jwt.verify(token, process.env.JWT_SECRET);
-          req.user = decoded
-          next();
-        }
-      } catch (error) {
-        console.log("you are not verified", error);
-      }
-})
 
 app.use('/api/v1/orders', orderRoute)
 
 
-const port = process.env.PORT || 3001
+const port = process.env.PORT || 3002
 
 
 app.listen(port, () => {
     console.log(`server is running on port ${port}`)
+    redis
 })
