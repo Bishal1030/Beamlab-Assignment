@@ -1,2 +1,9 @@
 /node_modules
-../.env
+/.env
+/babel.config.js
+/jest.config.js
+/coverage
+/.vscode
+/package-lock.json
+/package.json
+
