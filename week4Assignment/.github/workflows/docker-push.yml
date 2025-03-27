@@ -32,6 +32,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./week4Assignment
-          file: ./week4Assignment/Dockerfile
+          file: week4Assignment/Dockerfile
           push: true
           tags: bishal1030/express-application:latest
