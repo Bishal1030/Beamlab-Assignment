@@ -1,9 +1,15 @@
-const { where } = require('sequelize')
 const {Product} = require('../../models')
+const {client} = require('../../config/redis.js')
+
+
 
 const createProducts = async(productData) => {
-    return await Product.create(productData)
 
+    const product =  await Product.create(productData)
+    const id = product.id
+    const serializedData = JSON.stringify(product)
+    await client.setEx(`product:${id}`, 3600, serializedData)
+    return product;
 }
 
 const getProducts = async() => {
@@ -11,6 +17,12 @@ const getProducts = async() => {
 }
 
 const getOneProduct = async(id) => {
+
+    const cachedProduct = await client.get(`product:${id}`)
+    if (cachedProduct){
+        const parseData = JSON.parse(cachedProduct)
+        return parseData;
+    }
     return await Product.findByPk(id)
 }
 

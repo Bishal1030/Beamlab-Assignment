@@ -2,15 +2,15 @@
     "users": [
       {
         "id": 1,
-        "email": "testadmin@example.com",
-        "password": "$2b$10$xVMpuhEOd3EwgxsyfSfJU.uuAg3l7nj45r7fSto3tORhhH0ZJ6QAC",
-        "role": "admin"
+        "email": "anubis@gmail.com",
+        "password": "12345",
+        "role": "User"
       },
       {
         "id": 2,
-        "email": "testuser@example.com",
-        "password": "$2b$10$iThZh/fCoFcl9qypFDWmt.kRdfI99PXRpu9kvwl6AowK7kuysBGJK",
-        "role": "user"
+        "email": "admin@example.com",
+        "password": "bishal123"
+        
       }
     ]
   }

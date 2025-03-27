@@ -3,7 +3,7 @@
     "username": "root",
     "password": null,
     "database": "product_order_service",
-    "host": "127.0.0.1",
+    "host": "host.docker.internal",
     "dialect": "mysql"
   },
   "test": {

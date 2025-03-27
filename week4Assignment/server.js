@@ -9,9 +9,7 @@ const orderRoute = require('./routes/order.route.js')
 const authRoute = require('./routes/auth.route.js')
 const register = require('./routes/register.route.js')
 const bodyParser = require('body-parser')
-const redis = require('./config/redis.js')
 const dotenv = require('dotenv')
-
 
 
 dotenv.config();
@@ -38,5 +36,4 @@ const port = process.env.PORT || 3002
 
 app.listen(port, () => {
     console.log(`server is running on port ${port}`)
-    redis
 })

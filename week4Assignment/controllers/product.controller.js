@@ -1,5 +1,4 @@
 const productService = require('../services/product/product.services.js')
-const redis = require('../config/redis.js')
 
 
 const createProduct = async(req,res) => {
@@ -8,7 +7,7 @@ const createProduct = async(req,res) => {
         return res.status(401).json({message: "every fields are required"})
     }
     const product = await productService.createProducts({name,description,price,stock})
-    console.log(product)
+    
     res.status(201).json({message: "Product created successfully", data: product})
 
 }

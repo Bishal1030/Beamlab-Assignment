@@ -7,7 +7,7 @@ const {authenticate,authority} = require('../middleware/auth.middleware.js')
 // order routes
 router.get('/', authenticate, authority, getAllOrders) // get orders
 router.post('/:id', authenticate,createOrders)
-router.delete('/:id', deleteOrders)
+router.delete('/:id',authenticate, authority, deleteOrders)
 
 module.exports = router;
 

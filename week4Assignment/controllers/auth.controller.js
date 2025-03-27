@@ -1,10 +1,12 @@
 const authService = require('../services/user/auth.service.js')
 
+
 const userLogin = async(req, res) => {
     try {
         const { email, password } = req.body;
 
         const { token, role } = await authService.Login(email, password);
+
     
         if (!token) {
             return res.status(401).json({ message: "Unauthorized access" });
