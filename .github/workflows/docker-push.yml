@@ -3,6 +3,8 @@ name: Build and Push Docker Image
 # Trigger the workflow when code is pushed to the main branch
 on:
   push:
+    paths:
+      - 'week4Assignment/**'
     branches:
       - main
 
@@ -29,7 +31,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
-          context: .
-          file: ./Dockerfile
+          context: ./week4Assignment
+          file: ./week4Assignment/Dockerfile
           push: true
           tags: bishal1030/express-application:latest
