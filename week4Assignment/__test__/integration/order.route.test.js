@@ -1,5 +1,5 @@
 const request = require('supertest');
-const products = require('../fixtures/products.json'); // Import products for seeding
+const products = require('../fixtures/products.json'); 
 const user = require('../fixtures/users.json');
 
 const baseUrl = 'http://localhost:3003';
@@ -9,15 +9,15 @@ describe('Order Route Testing', () => {
   let adminValidToken;
 
   beforeAll(async () => {
-    // Perform login request and retrieve token for a non-admin user
+    // Performing login request and retrieving token for a non-admin user
     const loginResponse = await request(baseUrl)
       .post('/api/v1/user/login')
       .send({ email: user.users[0].email, password: user.users[0].password });
     expect(loginResponse.statusCode).toBe(200);
     expect(loginResponse.body.data).toHaveProperty('token');
-    validToken = loginResponse.body.data.token; // Extract the valid token
+    validToken = loginResponse.body.data.token; // Extracting the valid token
 
-    // Admin login request and retrieve token
+    // Admin login request and retrieving token
     const adminLoginResponse = await request(baseUrl)
       .post('/api/v1/admin/login')
       .send({ email: user.users[1].email, password: user.users[1].password });
@@ -39,10 +39,10 @@ describe('Order Route Testing', () => {
   });
 
   test('should create order successfully', async () => {
-    const product = products[2]; // Use the product directly from products.json
+    const product = products[2]; // Using the product directly from products.json
     const newOrder = { 
       quantity: 2, 
-      productId: product.id // Use the product's ID directly
+      productId: product.id
     };
 
     const response = await request(baseUrl)
