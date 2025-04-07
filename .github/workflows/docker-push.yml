@@ -1,4 +1,4 @@
-name: Build and Push Docker Image
+name: Build and Push to Ec2
 
 # Trigger the workflow when code is pushed to the main branch
 on:
@@ -37,11 +37,19 @@ jobs:
           file: ./week4Assignment/Dockerfile
           push: true
           tags: bishal1030/express-application:latest
+<<<<<<< HEAD
 
       # Step 5: Run docker-compose on EC2
+=======
+          
+              # Step 5: Run docker-compose on EC2
+>>>>>>> bdc986340eec1dc9647722d3e2be6eaab0a8c79c
       - name: Run docker-compose
         run: |
           cd /home/ubuntu/app
           docker compose pull express_app
           docker compose up -d
+<<<<<<< HEAD
       
+=======
+>>>>>>> bdc986340eec1dc9647722d3e2be6eaab0a8c79c
