@@ -38,9 +38,3 @@ jobs:
           push: true
           tags: bishal1030/express-application:latest
 
-      # Step 5: Run docker-compose on EC2
-      - name: Run docker-compose
-        run: |
-          cd /home/ubuntu/app
-          docker compose pull express_app
-          docker compose up -d
