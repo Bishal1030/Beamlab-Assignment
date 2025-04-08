@@ -10,9 +10,19 @@ on:
 jobs:
   deploy-to-ec2:
     runs-on: self-hosted  # This is your EC2 runner
+    strategy:
+      matrix:
+        node-version: [20.x]
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
 
       - name: Deploy app to server
         run: |
