@@ -28,5 +28,5 @@ jobs:
         run: |
           
           # If Node.js project
-          npm install
+          npm ci
           pm2 restart app || pm2 start server.js --name app
