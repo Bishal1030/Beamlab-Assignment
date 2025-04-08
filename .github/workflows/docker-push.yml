@@ -10,7 +10,7 @@ on:
 
 jobs:
   build-and-push:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       # Step 1: Check out the repository code
       - name: Checkout code
@@ -36,11 +36,5 @@ jobs:
           context: ./week4Assignment
           file: ./week4Assignment/Dockerfile
           push: true
-          tags: bishal1030/express-application:latest
+          tags: bishal1030/express-application:v1
 
-      # Step 5: Run docker-compose on EC2
-      - name: Run docker-compose
-        run: |
-          cd /home/ubuntu/app
-          docker compose pull express_app
-          docker compose up -d
