@@ -16,9 +16,7 @@ jobs:
 
       - name: Deploy app to server
         run: |
-          cd /home/ubuntu/Beamlab-Assignment/week4Assignment
-          git pull origin main
           
           # If Node.js project
           npm install
-          pm2 restart app || pm2 start index.js --name app
+          pm2 restart app || pm2 start server.js --name app
