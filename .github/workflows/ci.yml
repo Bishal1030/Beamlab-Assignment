@@ -37,4 +37,10 @@ jobs:
           file: ./week4Assignment/Dockerfile
           push: true
           tags: bishal1030/express-application:v1
+        
+      - name: Run docker-compose on EC2
+        run: |
+          cd /home/ubuntu/app
+          docker compose pull
+          docker compose up -d --remove-orphans
 
