@@ -12,7 +12,7 @@ jobs:
     runs-on: self-hosted  # This is your EC2 runner
     strategy:
       matrix:
-        node-version: [20.x]
+        node-version: [18.x]
 
     steps:
       - name: Checkout code
