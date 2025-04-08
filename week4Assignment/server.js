@@ -33,7 +33,6 @@ app.use('/api/v1/orders', orderRoute)
 
 const port = process.env.PORT || 3002
 
-console.log("hello")
 
 app.listen(port, () => {
     console.log(`server is running on port ${port}`)
