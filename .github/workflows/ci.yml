@@ -1,4 +1,4 @@
-name: Build and Push to Ec2
+name: CI pipeline
 
 # Trigger the workflow when code is pushed to the main branch
 on:
